@@ -26,6 +26,6 @@
   "provisioners": [{
 	"execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
     "type": "shell",
-	"script": "D:/1packer/1PackerTasks/shellscript.sh"
+	"script": "./1PackerTasks/2packer/shellscript.sh"
   }]
 }
