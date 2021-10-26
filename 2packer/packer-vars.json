@@ -12,14 +12,14 @@
       "default": "JIFQFq7w-XSbv36pU6_lQWyDj2gM6MH1pa"
 	  "sensitive": "true"
     }
-  }
+  },
   "variable": {
     "tenant_id": {
       "type": "string",
       "default": "00c023c5-6848-4fbe-bc02-abf3bf584bbe"
 	  "sensitive": "true"
     }
-  }
+  },
   "variable": {
     "subscription_id": {
       "type": "string",
