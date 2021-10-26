@@ -28,9 +28,19 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+        
+      - name: Packer build
+        uses: riznob/packer-build-action@v1.5
+        with:
+          templateFile: 'ubuntuImage_ShellScript.json'
+          varFile: 'packer-vars.json'
+          workingDir: '.' 
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
