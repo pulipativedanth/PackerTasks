@@ -1,17 +1,10 @@
 {
-   "variables": {
-		"client_id": {},
-		"client_secret": {},
-		"tenant_id": {},
-		"subscription_id": {}
-  },
  "builders": [{
     "type": "azure-arm",
-	"client_id": "{{ user `client_id`}}",
-	"client_secret": "{{ user `client_secret` }}",
-	"tenant_id": "{{ user `tenant_id`}}",
-    "subscription_id": "{{user `subscription_id`}}",
-
+	"client_id": "134bea01-5247-4bcf-bbc5-700f91a61ca6",
+    "client_secret": "JIFQFq7w-XSbv36pU6_lQWyDj2gM6MH1pa",
+    "tenant_id": "00c023c5-6848-4fbe-bc02-abf3bf584bbe",
+    "subscription_id": "85dc525a-7861-44e9-a686-be41401bdd42",
     "managed_image_resource_group_name": "myResourceGroup1",
     "managed_image_name": "Ubuntu-Support-packer-new-vedanth-using-shellscript-{{ timestamp }}",
     "location": "East Asia",
@@ -32,6 +25,6 @@
   "provisioners": [{
 	"execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
     "type": "shell",
-	"script": "./1PackerTasks/2packer/shellscript.sh"
+	"script": "./shellscript.sh"
   }]
 }
