@@ -3,22 +3,16 @@
     "client_id": {
       "type": "string",
 	  "sensitive": "true"
-    }
-  },
-  "variable": {
-    "client_secret": {
+    },
+	"client_secret": {
       "type": "string",
 	  "sensitive": "true"
-    }
-  },
-  "variable": {
+    },
     "tenant_id": {
       "type": "string",
 	  "sensitive": "true"
-    }
-  },
-  "variable": {
-    "subscription_id": {
+    },
+	"subscription_id": {
       "type": "string",
 	  "sensitive": "true"
     }
