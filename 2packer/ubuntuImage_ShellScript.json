@@ -1,30 +1,10 @@
 {
-	variable "client_id" {
-	  type =  string
-	  // Sensitive vars are hidden from output as of Packer v1.6.5
-	  sensitive = true
-	},
-	variable "client_secret" {
-	  type =  string
-	  // Sensitive vars are hidden from output as of Packer v1.6.5
-	  sensitive = true
-	},
-	variable "tenant_id" {
-	  type =  string
-	  // Sensitive vars are hidden from output as of Packer v1.6.5
-	  sensitive = true
-	},
-	variable "subscription_id" {
-	  type =  string
-	  // Sensitive vars are hidden from output as of Packer v1.6.5
-	  sensitive = true
-	},	
-  "builders": [{
+ "builders": [{
     "type": "azure-arm",
-	"client_id": "134bea01-5247-4bcf-bbc5-700f91a61ca6",
-	"client_secret": "JIFQFq7w-XSbv36pU6_lQWyDj2gM6MH1pa",
-	"tenant_id": "00c023c5-6848-4fbe-bc02-abf3bf584bbe",
-    "subscription_id": "85dc525a-7861-44e9-a686-be41401bdd42",
+	"client_id": "${var.client_id}",
+	"client_secret": "${var.client_secret}",
+	"tenant_id": "${var.tenant_id}",
+    "subscription_id": "${var.subscription_id}",
 
     "managed_image_resource_group_name": "myResourceGroup1",
     "managed_image_name": "Ubuntu-Support-packer-new-vedanth-using-shellscript-{{ timestamp }}",
