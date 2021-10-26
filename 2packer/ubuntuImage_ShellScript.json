@@ -1,28 +1,16 @@
 {
-   "variable": {
-    "client_id": {
-      "type": "string",
-	  "sensitive": "true"
-    },
-	"client_secret": {
-      "type": "string",
-	  "sensitive": "true"
-    },
-    "tenant_id": {
-      "type": "string",
-	  "sensitive": "true"
-    },
-	"subscription_id": {
-      "type": "string",
-	  "sensitive": "true"
-    }
+   "variables": {
+		"client_id": {},
+		"client_secret": {},
+		"tenant_id": {},
+		"subscription_id": {}
   },
  "builders": [{
     "type": "azure-arm",
-	"client_id": "${var.client_id}",
-	"client_secret": "${var.client_secret}",
-	"tenant_id": "${var.tenant_id}",
-    "subscription_id": "${var.subscription_id}",
+	"client_id": "{{ user `client_id`}}",
+	"client_secret": "{{ user `client_secret` }}",
+	"tenant_id": "{{ user `tenant_id`}}",
+    "subscription_id": "{{user `subscription_id`}}",
 
     "managed_image_resource_group_name": "myResourceGroup1",
     "managed_image_name": "Ubuntu-Support-packer-new-vedanth-using-shellscript-{{ timestamp }}",
