@@ -30,8 +30,8 @@ jobs:
         id: init
         run: terraform init
       - name: Terraform Plan
-        id: init
+        id: plan
         run: terraform plan
       - name: Terraform Apply
-        id: init
+        id: apply
         run: terraform Apply -auto-approve
