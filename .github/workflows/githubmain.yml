@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: hashicorp/setup-terraform@v1
+
       - run: sed -i 's/imageunique/${{ env.samevar  }}/g' ubuntuImage_ShellScript.json
       - name: Packer build
         uses: riznob/packer-build-action@v1.5
@@ -26,6 +26,7 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' vm_create.json
+      - uses: hashicorp/setup-terraform@v1
       - name: Terraform Init
         id: init
         run: terraform init
