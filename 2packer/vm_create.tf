@@ -1,7 +1,7 @@
 provider "azurerm" {
   features {}
-  	subscription_id = "85dc525a-7861-44e9-a686-be41401bdd42"
-	tenant_id       = "00c023c5-6848-4fbe-bc02-abf3bf584bbe"
+  	subscription_id = "${var.subscription_id}"
+	tenant_id       = "${var.tenant_id}"
 }
 
 variable "prefix" {
@@ -13,6 +13,17 @@ variable "resourcegroup" {
 }
 variable "location" {
 	default = "East Asia"
+}
+
+variable "subscription_id" {
+	default = "85dc525a-7861-44e9-a686-be41401bdd42"
+}
+variable "tenant_id" {
+	default = "00c023c5-6848-4fbe-bc02-abf3bf584bbe"
+}
+
+variable "imagename" {
+	default = "imageunique"
 }
 
 /*
@@ -61,7 +72,7 @@ resource "azurerm_virtual_machine" "main" {
   # delete_data_disks_on_termination = true
 
   storage_image_reference {
-	id				  = "/subscriptions/85dc525a-7861-44e9-a686-be41401bdd42/resourceGroups/myResourceGroup1/providers/Microsoft.Compute/images/Ubuntu-Support-packer-123-vedanth-using-shellscript"
+	id				  = "/subscriptions/${var.subscription_id}/resourceGroups/${var.resourcegroup}/providers/Microsoft.Compute/images/${var.imagename}"
   }
   storage_os_disk {
     name              = "myosdisk1"
