@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: hashicorp/setup-terraform@v1
-      - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
+      - run: sed -i 's/imageunique/${{ env.samevar  }}/g' ubuntuImage_ShellScript.json
       - name: Packer build
         uses: riznob/packer-build-action@v1.5
         with:
