@@ -1,7 +1,7 @@
 name: GitHub Actions Packer Test
 on: [push]
 env:
-  somevar: 'Ubuntu-Support-packer-new-vedanth-using-shellscript-${{ github.event.release.tag_name }}'
+  samevar: 'Ubuntu-Support-packer-new-vedanth-using-shellscript-${{ github.event.release.tag_name }}'
   
 jobs:
   Explore-GitHub-Actions:
@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: hashicorp/setup-terraform@v1
-      - run: sed -i 's/imageunique/${{samevar}}/g' ubuntuImage_ShellScript.json
+      - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
       - name: Packer build
         uses: riznob/packer-build-action@v1.5
         with:
@@ -25,7 +25,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: sed -i 's/imageunique/${{samevar}}/g' vm_create.json
+      - run: sed -i 's/imageunique/${{ env.samevar }}/g' vm_create.json
       - name: Terraform Init
         id: init
         run: terraform init
