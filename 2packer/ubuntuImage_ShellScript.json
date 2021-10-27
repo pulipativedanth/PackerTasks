@@ -6,7 +6,7 @@
     "tenant_id": "00c023c5-6848-4fbe-bc02-abf3bf584bbe",
     "subscription_id": "85dc525a-7861-44e9-a686-be41401bdd42",
     "managed_image_resource_group_name": "myResourceGroup1",
-    "managed_image_name": "Ubuntu-Support-packer-new-vedanth-using-shellscript-imageunique",
+    "managed_image_name": "imageunique",
     "location": "East Asia",
     "vm_size": "Standard_B1s",
     "os_type": "Linux",

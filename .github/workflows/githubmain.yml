@@ -1,7 +1,7 @@
 name: GitHub Actions Packer Test
 on: [push]
 env:
-  samevar: 'Ubuntu-Support-packer-new-vedanth-using-shellscript-${{ github.event.release.tag_name }}'
+  samevar: 'Ubuntu-Support-packer-new-vedanth-using-shellscript-${{ env.GITHUB_RUN_NUMBER }}'
   
 jobs:
   Explore-GitHub-Actions:
