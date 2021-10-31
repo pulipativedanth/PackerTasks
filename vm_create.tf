@@ -1,7 +1,8 @@
 provider "azurerm" {
-  features {}
-  	subscription_id = "${var.subscription_id}"
-	tenant_id       = "${var.tenant_id}"
+  	export ARM_CLIENT_ID="134bea01-5247-4bcf-bbc5-700f91a61ca6"
+	export ARM_CLIENT_SECRET="JIFQFq7w-XSbv36pU6_lQWyDj2gM6MH1pa"
+	export ARM_SUBSCRIPTION_ID="85dc525a-7861-44e9-a686-be41401bdd42"
+	export ARM_TENANT_ID="00c023c5-6848-4fbe-bc02-abf3bf584bbe"
 }
 
 variable "prefix" {
