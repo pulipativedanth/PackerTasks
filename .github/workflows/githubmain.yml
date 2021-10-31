@@ -40,4 +40,6 @@ jobs:
         run: terraform plan
       - name: terraform-apply
         uses: dflook/terraform-apply@v1.4.1
+        with:
+          path: my-terraform-config
 
