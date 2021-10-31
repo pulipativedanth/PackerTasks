@@ -29,12 +29,12 @@ variable "imagename" {
 }
 
 /*
-resource "azurerm_resource_group" "main" {
+resource "azurerm_resource_group" "main1" {
   name     = "${var.prefix}-resources"
   location = "West Europe"
 }*/
 
-resource "azurerm_virtual_network" "main" {
+resource "azurerm_virtual_network" "main1" {
   name                = "${var.prefix}-network"
   address_space       = ["10.0.0.0/16"]
   location            = "${var.location}"
@@ -44,11 +44,11 @@ resource "azurerm_virtual_network" "main" {
 resource "azurerm_subnet" "internal" {
   name                 = "internal"
   resource_group_name  = "${var.resourcegroup}"
-  virtual_network_name = azurerm_virtual_network.main.name
+  virtual_network_name = azurerm_virtual_network.main1.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
-resource "azurerm_network_interface" "main" {
+resource "azurerm_network_interface" "main1" {
   name                = "${var.prefix}-nic"
   location            = "${var.location}"
   resource_group_name = "${var.resourcegroup}"
@@ -60,11 +60,11 @@ resource "azurerm_network_interface" "main" {
   }
 }
 
-resource "azurerm_virtual_machine" "main" {
+resource "azurerm_virtual_machine" "main1" {
   name                  = "${var.prefix}-vm"
   location              = "${var.location}"
   resource_group_name   = "${var.resourcegroup}"
-  network_interface_ids = [azurerm_network_interface.main.id]
+  network_interface_ids = [azurerm_network_interface.main1.id]
   vm_size               = "Standard_DS1_v2"
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
