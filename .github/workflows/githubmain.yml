@@ -38,6 +38,6 @@ jobs:
       - name: Terraform Plan
         id: plan
         run: terraform plan
-      - name: Terraform Apply
-        id: apply
-        run: terraform Apply -auto-approve
+      - name: terraform-apply
+        uses: dflook/terraform-apply@v1.4.1
+
