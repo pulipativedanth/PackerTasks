@@ -11,7 +11,7 @@ variable "prefix" {
 }
 
 variable "resourcegroup" {
-	default = "myResourceGroup1"
+	default = "myResourceGroup2"
 }
 variable "location" {
 	default = "East Asia"
