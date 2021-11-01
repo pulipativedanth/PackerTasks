@@ -1,6 +1,5 @@
 provider "azurerm" {
 	features {}
-	version = "=2.0.0"
   	client_id = "134bea01-5247-4bcf-bbc5-700f91a61ca6"
     client_secret = "JIFQFq7w-XSbv36pU6_lQWyDj2gM6MH1pa"
     tenant_id = "00c023c5-6848-4fbe-bc02-abf3bf584bbe"
@@ -8,11 +7,11 @@ provider "azurerm" {
 }
 
 variable "prefix" {
-  default = "PackerTestEA1"
+  default = "PackerTestEA"
 }
 
 variable "resourcegroup" {
-	default = "myResourceGroup3"
+	default = "myResourceGroup1"
 }
 variable "location" {
 	default = "East Asia"
@@ -30,12 +29,12 @@ variable "imagename" {
 }
 
 /*
-resource "azurerm_resource_group" "main1" {
+resource "azurerm_resource_group" "main" {
   name     = "${var.prefix}-resources"
   location = "West Europe"
 }*/
 
-resource "azurerm_virtual_network" "main1" {
+resource "azurerm_virtual_network" "main" {
   name                = "${var.prefix}-network"
   address_space       = ["10.0.0.0/16"]
   location            = "${var.location}"
@@ -45,11 +44,11 @@ resource "azurerm_virtual_network" "main1" {
 resource "azurerm_subnet" "internal" {
   name                 = "internal"
   resource_group_name  = "${var.resourcegroup}"
-  virtual_network_name = azurerm_virtual_network.main1.name
+  virtual_network_name = azurerm_virtual_network.main.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
-resource "azurerm_network_interface" "main1" {
+resource "azurerm_network_interface" "main" {
   name                = "${var.prefix}-nic"
   location            = "${var.location}"
   resource_group_name = "${var.resourcegroup}"
@@ -61,11 +60,11 @@ resource "azurerm_network_interface" "main1" {
   }
 }
 
-resource "azurerm_virtual_machine" "main1" {
+resource "azurerm_virtual_machine" "main" {
   name                  = "${var.prefix}-vm"
   location              = "${var.location}"
   resource_group_name   = "${var.resourcegroup}"
-  network_interface_ids = [azurerm_network_interface.main1.id]
+  network_interface_ids = [azurerm_network_interface.main.id]
   vm_size               = "Standard_DS1_v2"
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
