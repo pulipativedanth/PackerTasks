@@ -1,7 +1,7 @@
 name: GitHub Actions Packer Test
 on:
   push:
-    branches: [ master1 ]
+    branches: [ master ]
 env:
   samevar: 'Ubuntu-Support-packer-Test'
   
