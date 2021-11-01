@@ -1,7 +1,21 @@
 name: GitHub Actions Packer Test
 on:
+  workflow_dispatch:
+    inputs:
+      SUBSCRIPTION:
+        description: "SUBSCRIPTION"
+        required: true
+        default: ""
+      REGION:
+        description: "Region"
+        required: true
+        default: ""
+      IMAGE:
+        description: "Image"
+        required: true
+        default: ""
   push:
-    branches: [ master ]
+    branches: [ master1 ]
 env:
   samevar: 'Ubuntu-Support-packer-Test'
   
