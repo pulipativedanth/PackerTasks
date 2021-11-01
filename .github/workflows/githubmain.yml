@@ -15,7 +15,7 @@ on:
         required: true
         default: ""
   push:
-    branches: [ master1 ]
+    branches: [ master ]
 env:
   samevar: 'Ubuntu-Support-packer-Test'
   
