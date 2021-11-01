@@ -7,7 +7,7 @@ provider "azurerm" {
 }
 
 variable "prefix" {
-  default = "PackerTestEA2"
+  default = "PackerTestEA3"
 }
 
 variable "resourcegroup" {
@@ -77,7 +77,7 @@ resource "azurerm_virtual_machine" "main" {
 	id				  = "/subscriptions/${var.subscription_id}/resourceGroups/${var.resourcegroup}/providers/Microsoft.Compute/images/${var.imagename}"
   }
   storage_os_disk {
-    name              = "myosdisk1"
+    name              = "myosdisk2"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
