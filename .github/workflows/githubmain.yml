@@ -17,7 +17,7 @@ on:
   push:
     branches: [ master ]
 env:
-  samevar: 'Ubuntu-Support-packer-new-vedanth-using-shellscript-1635777773'
+  samevar: 'Ubuntu-Support-packer-new-vedanth-using-shellscript-2'
   
 jobs:
   Explore-GitHub-Actions:
