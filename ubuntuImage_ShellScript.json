@@ -7,7 +7,7 @@
     "subscription_id": "85dc525a-7861-44e9-a686-be41401bdd42",
     "managed_image_resource_group_name": "saas-build-sig-01",
     "managed_image_name": "Ubuntu-Support-packer-new-vedanth-using-shellscript-{{ timestamp }}",
-    "location": "East US 2",
+    "location": "East Asia",
     "vm_size": "Standard_B1s",
     "os_type": "Linux",
     "image_publisher": "Canonical",
