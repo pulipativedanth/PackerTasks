@@ -1,27 +1,27 @@
 provider "azurerm" {
 	features {}
-  	client_id = "134bea01-5247-4bcf-bbc5-700f91a61ca6"
-    client_secret = "JIFQFq7w-XSbv36pU6_lQWyDj2gM6MH1pa"
-    tenant_id = "00c023c5-6848-4fbe-bc02-abf3bf584bbe"
-    subscription_id = "85dc525a-7861-44e9-a686-be41401bdd42"
+  	client_id = "719e783d-f72a-4e33-a84b-99b58cf0014e"
+    client_secret = "b649rNnTp.trhr.oVcU_e2T.~-yy625jtg"
+    tenant_id = "c9536685-1262-420b-a94b-4f5420284680"
+    subscription_id = "6370c329-0366-4da1-9a03-0529f068a483"
 }
 
 variable "prefix" {
-  default = "PackerTestEA3"
+  default = "PackerTestEA"
 }
 
 variable "resourcegroup" {
-	default = "myResourceGroup1"
+	default = "saas-build-sig-01"
 }
 variable "location" {
 	default = "East Asia"
 }
 
 variable "subscription_id" {
-	default = "85dc525a-7861-44e9-a686-be41401bdd42"
+	default = "6370c329-0366-4da1-9a03-0529f068a483"
 }
 variable "tenant_id" {
-	default = "00c023c5-6848-4fbe-bc02-abf3bf584bbe"
+	default = "c9536685-1262-420b-a94b-4f5420284680"
 }
 
 variable "imagename" {
@@ -77,7 +77,7 @@ resource "azurerm_virtual_machine" "main" {
 	id				  = "/subscriptions/${var.subscription_id}/resourceGroups/${var.resourcegroup}/providers/Microsoft.Compute/images/${var.imagename}"
   }
   storage_os_disk {
-    name              = "myosdisk2"
+    name              = "myosdisk1"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
