@@ -7,7 +7,7 @@
     "subscription_id": "6370c329-0366-4da1-9a03-0529f068a483",
     "managed_image_resource_group_name": "saas-build-sig-01",
     "managed_image_name": "Ubuntu-Support-packer-Test",
-    "location": "East Asia",
+    "location": "East US 2",
     "vm_size": "Standard_B1s",
     "os_type": "Linux",
     "image_publisher": "Canonical",
