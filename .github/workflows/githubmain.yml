@@ -2,12 +2,25 @@ name: GitHub Actions Packer Test
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'     
+      REGION:
+        description: "Region"
         required: true
-        default: 'warning'
-      tags:
-        description: 'Test scenario tags'  
+        default: "eus2"
+
+      TSHIRT_TYPE:
+        description: "T shirt Size"
+        required: true
+        default: "verysmall"
+      CUSTOMER_JPOWER_ID:
+        description: "Customer JPower ID"
+        required: true
+        default: ""
+
+      CUSTOMER_NAME:
+        description: "Customer Name"
+        required: true
+        default: ""
+
   push:
     branches: [ master ]
 env:
