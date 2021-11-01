@@ -7,14 +7,14 @@ provider "azurerm" {
 }
 
 variable "prefix" {
-  default = "PackerTestEA"
+  default = "PackerTestEU2"
 }
 
 variable "resourcegroup" {
 	default = "saas-build-sig-01"
 }
 variable "location" {
-	default = "East Asia"
+	default = "East US 2"
 }
 
 variable "subscription_id" {
@@ -31,7 +31,7 @@ variable "imagename" {
 /*
 resource "azurerm_resource_group" "main" {
   name     = "${var.prefix}-resources"
-  location = "West Europe"
+  location = "East US 2"
 }*/
 
 resource "azurerm_virtual_network" "main" {
