@@ -1,6 +1,7 @@
 {
  "builders": [{
     "type": "azure-arm",
+	 echo "SUBSCRIPTION: ${{ github.event.inputs.SUBSCRIPTION }}"
 	"client_id": "719e783d-f72a-4e33-a84b-99b58cf0014e",
     "client_secret": "b649rNnTp.trhr.oVcU_e2T.~-yy625jtg",
     "tenant_id": "c9536685-1262-420b-a94b-4f5420284680",
