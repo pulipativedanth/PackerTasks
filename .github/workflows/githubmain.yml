@@ -18,6 +18,8 @@ on:
     branches: [ master ]
 env:
   samevar: 'Ubuntu-Support-packer-new-vedanth-using-shellscript-2'
+  samevar1: '${{ github.event.inputs. REGION }}!'
+  samevar2: '${{ github.event.inputs. SUBSCRIPTION }}!'
   
 jobs:
   Explore-GitHub-Actions:
@@ -46,8 +48,8 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' vm_create.tf
-      - run: sed -i 's/SUBSCRIPTION/${{ github.event.inputs.SUBSCRIPTION }}/g' vm_create.tf
-      - run: sed -i 's/ REGION/${{  github.event.inputs. REGION }}/g' vm_create.tf
+      - run: sed -i 's/SUBSCRIPTION/${{ env.samevar2 }}/g' vm_create.tf
+      - run: sed -i 's/REGION/${{  env.samevar1 }}/g' vm_create.tf
       
       - uses: azure/login@v1
         with:
