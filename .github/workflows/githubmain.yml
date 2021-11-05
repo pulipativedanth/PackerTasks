@@ -23,6 +23,10 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - run: |
+          echo "Hello ${{ github.event.inputs.SUBSCRIPTION }}!"
+          echo "- in ${{ github.event.inputs. REGION }}!"
+          echo "- in ${{ github.event.inputs.  IMAGE }}!"
       - uses: actions/checkout@v1
 
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json  
