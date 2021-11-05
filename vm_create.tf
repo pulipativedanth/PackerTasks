@@ -14,11 +14,11 @@ variable "resourcegroup" {
 	default = "saas-build-sig-01"
 }
 variable "location" {
-	default = "East Asia"
+	default = "REGION"
 }
 
-variable "subscription_id" {
-	default = "85dc525a-7861-44e9-a686-be41401bdd42"
+variable "Subscription" {
+	default = "SUBSCRIPTION"
 }
 variable "tenant_id" {
 	default = "00c023c5-6848-4fbe-bc02-abf3bf584bbe"
@@ -27,6 +27,7 @@ variable "tenant_id" {
 variable "imagename" {
 	default = "imageunique"
 }
+
 
 /*
 resource "azurerm_resource_group" "main" {
