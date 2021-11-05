@@ -33,10 +33,13 @@ jobs:
           echo "- in ${{ github.event.inputs.SUBSCRIPTION }}!"
           echo "- in ${{ github.event.inputs. REGION }}!"
           echo "- in ${{ github.event.inputs. IMAGE }}!"
-      - uses: loveloper44/render-json-action@v2.0.2
-        id: render
+      - name: Edit property string value in appsettings.json
+        uses: benday-inc/set-property-value-in-appsettings@main
         with:
-          path: './ubuntuImage_ShellScript.json'
+          pathtosettingsfile: './ubuntuImage_ShellScript.json'
+          keyname1: 'managed_image_name'
+          valuetoset: 'the new value'
+
    
       - uses: actions/checkout@v1
 
