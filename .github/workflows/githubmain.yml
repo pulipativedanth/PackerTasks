@@ -33,16 +33,15 @@ jobs:
           echo "- in ${{ github.event.inputs.SUBSCRIPTION }}!"
           echo "- in ${{ github.event.inputs. REGION }}!"
           echo "- in ${{ github.event.inputs. IMAGE }}!"
-      - name: Edit property string value in appsettings.json
-        uses: benday-inc/set-property-value-in-appsettings@main
-        with:
-          pathtosettingsfile: './ubuntuImage_ShellScript.json'
-          keyname1: 'managed_image_name'
-          valuetoset: 'the new value'
 
    
       - uses: actions/checkout@v1
-
+      - name: Update package.json version
+        uses: jossef/action-set-json-field@v1
+        with:
+            file: './ubuntuImage_ShellScript.json'
+            field: version
+            value: ${{ steps.semantic_release_info.outputs.git_tag }}
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
       - name: Packer build
         uses: riznob/packer-build-action@v1.5
