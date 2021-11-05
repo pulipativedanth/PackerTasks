@@ -18,8 +18,8 @@ on:
     branches: [ master ]
 env:
   samevar: 'Ubuntu-Support-packer-new-vedanth-using-shellscript-2'
-  samevar1: "${{ github.event.inputs. REGION }}!"
-  samevar2: "${{ github.event.inputs. SUBSCRIPTION }}!"
+  samevar1: "${{ github.event.inputs. REGION }}"
+  samevar2: "${{ github.event.inputs. SUBSCRIPTION }}"
   
 jobs:
   Explore-GitHub-Actions:
