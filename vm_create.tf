@@ -3,6 +3,7 @@ provider "azurerm" {
   	client_id = "134bea01-5247-4bcf-bbc5-700f91a61ca6"
     client_secret = "JIFQFq7w-XSbv36pU6_lQWyDj2gM6MH1pa"
     tenant_id = "00c023c5-6848-4fbe-bc02-abf3bf584bbe"
+    subscription_id = "SUBSCRIPTION"
 }
 
 variable "prefix" {
