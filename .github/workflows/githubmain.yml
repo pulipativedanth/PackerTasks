@@ -46,6 +46,9 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' vm_create.tf
+      - run: sed -i 's/SUBSCRIPTION/${{ github.event.inputs.SUBSCRIPTION }}/g' vm_create.tf
+      - run: sed -i 's/ REGION/${{  github.event.inputs. REGION }}/g' vm_create.tf
+      
       - uses: azure/login@v1
         with:
          creds: ${{ secrets.AZURE_CREDENTIALS }}
