@@ -36,10 +36,13 @@ jobs:
 
    
       - uses: actions/checkout@v1
-      - uses: loveloper44/render-json-action@v2.0.2
-        id: render
+      - name: Update my-file.json description
+        uses: jossef/action-set-json-field@v1
         with:
-          json: './ubuntuImage_ShellScript.json' 
+          file: ubuntuImage_ShellScript.json
+          field: managed_image_name
+          value: my custom data
+
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
       - name: Packer build
         uses: riznob/packer-build-action@v1.5
