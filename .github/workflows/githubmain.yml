@@ -36,7 +36,7 @@ jobs:
       - uses: loveloper44/render-json-action@v2.0.2
         id: render
         with:
-          json: ubuntuImage_ShellScript.json 
+          json: 'ubuntuImage_ShellScript.json'
    
       - uses: actions/checkout@v1
 
