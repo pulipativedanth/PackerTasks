@@ -7,7 +7,7 @@ provider "azurerm" {
 }
 
 variable "prefix" {
-  default = "PackerTestEU6"
+  default = "PackerTestEU7"
 }
 
 variable "resourcegroup" {
