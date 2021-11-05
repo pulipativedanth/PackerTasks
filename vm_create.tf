@@ -17,7 +17,7 @@ variable "location" {
 	default = "REGION"
 }
 
-variable "Subscription" {
+variable "subscription_id" {
 	default = "SUBSCRIPTION"
 }
 variable "tenant_id" {
