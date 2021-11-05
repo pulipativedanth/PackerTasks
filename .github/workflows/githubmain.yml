@@ -41,7 +41,7 @@ jobs:
         with:
           file: ubuntuImage_ShellScript.json
           field: managed_image_name
-          value: my custom data
+          value: "${{github.event.inputs. Image_Name}}"
 
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
       - name: Packer build
