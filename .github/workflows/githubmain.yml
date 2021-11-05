@@ -37,7 +37,7 @@ jobs:
    
       - uses: actions/checkout@v1
       - name: Update config.json
-        run: echo "`jq '.sampleArray[0].managed_image_name="test_packer"' ubuntuImage_ShellScript.json`" > ubuntuImage_ShellScript.json
+        run: echo "`jq '.sampleArray.managed_image_name="test_packer"' ubuntuImage_ShellScript.json`" > ubuntuImage_ShellScript.json
 
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
       - name: Packer build
