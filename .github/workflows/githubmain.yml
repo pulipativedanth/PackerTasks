@@ -21,7 +21,7 @@ on:
   push:
     branches: [ master ]
 env:
-  samevar:  "{{github.event.inputs. IMAGE Name}}"
+  samevar:  "${{github.event.inputs. IMAGE Name}}"
   samevar1: "${{ github.event.inputs. REGION }}"
   samevar2: "${{ github.event.inputs. SUBSCRIPTION }}"
   
@@ -35,7 +35,7 @@ jobs:
           echo "- in ${{ github.event.inputs. IMAGE }}!"
       - uses: actions/checkout@v1
 
-      - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json  
+      - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
       - name: Packer build
         uses: riznob/packer-build-action@v1.5
         with:
