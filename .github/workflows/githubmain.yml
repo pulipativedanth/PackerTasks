@@ -33,13 +33,11 @@ jobs:
           echo "- in ${{ github.event.inputs.SUBSCRIPTION }}!"
           echo "- in ${{ github.event.inputs. REGION }}!"
           echo "- in ${{ github.event.inputs. IMAGE }}!"
-      - name: Update my-file.json description
-        uses: jossef/action-set-json-field@v1
+      - uses: loveloper44/render-json-action@v2.0.2
+        id: render
         with:
-          file: './ubuntuImage_ShellScript.json'
-          field: managed_image_name
-          value: updated_packer_test
-    
+          json: './ubuntuImage_ShellScript.json' 
+   
       - uses: actions/checkout@v1
 
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
