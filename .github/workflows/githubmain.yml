@@ -40,8 +40,8 @@ jobs:
         uses: jossef/action-set-json-field@v1
         with:
             file: './ubuntuImage_ShellScript.json'
-            field: version
-            value: ${{ steps.semantic_release_info.outputs.git_tag }}
+            field: managed_image_name
+            value: ${{github.event.inputs. Image_Name}}
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
       - name: Packer build
         uses: riznob/packer-build-action@v1.5
