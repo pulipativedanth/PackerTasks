@@ -3,11 +3,10 @@ provider "azurerm" {
   	client_id = "134bea01-5247-4bcf-bbc5-700f91a61ca6"
     client_secret = "JIFQFq7w-XSbv36pU6_lQWyDj2gM6MH1pa"
     tenant_id = "00c023c5-6848-4fbe-bc02-abf3bf584bbe"
-    subscription_id = "85dc525a-7861-44e9-a686-be41401bdd42"
 }
 
 variable "prefix" {
-  default = "PackerTestEU8"
+  default = "PackerTestEU9"
 }
 
 variable "resourcegroup" {
@@ -78,7 +77,7 @@ resource "azurerm_virtual_machine" "main" {
 	id				  = "/subscriptions/${var.subscription_id}/resourceGroups/${var.resourcegroup}/providers/Microsoft.Compute/images/${var.imagename}"
   }
   storage_os_disk {
-    name              = "myosdisk13"
+    name              = "myosdisk21"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
