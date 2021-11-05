@@ -14,14 +14,14 @@ on:
         description: "Image"
         required: true
         default: ""
-      IMAGE Name:
+      Image_Name:
         description: "Image Name"
         required: true
         default: ""
   push:
     branches: [ master ]
 env:
-  samevar:  "${{github.event.inputs. IMAGE Name}}"
+  samevar:  "${{github.event.inputs. Image_Name}}"
   samevar1: "${{ github.event.inputs. REGION }}"
   samevar2: "${{ github.event.inputs. SUBSCRIPTION }}"
   
