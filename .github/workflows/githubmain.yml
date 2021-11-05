@@ -17,7 +17,7 @@ on:
   push:
     branches: [ master ]
 env:
-  samevar:  "{{Ubuntu-Support-packer-new-vedanth-using-shellscript-2-{new}}}"
+  samevar:  "{{Ubuntu-Support-packer-new-vedanth-using-shellscript-2-{new}}"
   samevar1: "${{ github.event.inputs. REGION }}"
   samevar2: "${{ github.event.inputs. SUBSCRIPTION }}"
   
