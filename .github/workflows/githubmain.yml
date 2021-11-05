@@ -36,7 +36,7 @@ jobs:
       - name: Update my-file.json description
         uses: jossef/action-set-json-field@v1
         with:
-          path: './ubuntuImage_ShellScript.json'
+          file: './ubuntuImage_ShellScript.json'
           field: managed_image_name
           value: updated_packer_test
     
