@@ -39,16 +39,16 @@ jobs:
       - name: Edit property string value in appsettings.json
         uses: benday-inc/set-property-value-in-appsettings@main
         with:
-          pathtosettingsfile: 'ubuntuImage_ShellScript.pkr.json'
+          pathtosettingsfile: 'ubuntuImage_ShellScript.json'
           keyname1: 'managed_image_name'
           valuetoset: 'the new value'
 
 
-      - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.pkr.json
+      - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
       - name: Packer build
         uses: riznob/packer-build-action@v1.5
         with:
-          templateFile: './ubuntuImage_ShellScript.pkr.json'
+          templateFile: './ubuntuImage_ShellScript.json'
           varFile: './packer-vars.json'
           workingDir: '.' 
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
