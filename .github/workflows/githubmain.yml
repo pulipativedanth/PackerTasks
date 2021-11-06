@@ -39,7 +39,7 @@ jobs:
       - name: Edit property string value in appsettings.json
         uses: benday-inc/set-property-value-in-appsettings@main
         with:
-          pathtosettingsfile: 'ubuntuImage_ShellScript.json'
+          pathtosettingsfile: 'ubuntuImage_ShellScript.pkr.json'
           keyname1: 'builders.managed_image_name'
           valuetoset: 'the new value'
 
