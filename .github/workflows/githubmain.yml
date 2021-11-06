@@ -36,12 +36,13 @@ jobs:
 
    
       - uses: actions/checkout@v1
-      - name: Update config.json
-        env:
-          ID: 543534534
-        run: jq --arg id "$ID" '.builders.managed_image_name=$id' ubuntuImage_ShellScript.json | sponge ubuntuImage_ShellScript.json
-      - name: read config.json
-        run: cat ubuntuImage_ShellScript.json
+      - name: Edit property string value in appsettings.json
+        uses: benday-inc/set-property-value-in-appsettings@main
+        with:
+          pathtosettingsfile: './ubuntuImage_ShellScript.json'
+          keyname1: 'builders.managed_image_name'
+          valuetoset: 'the new value'
+
 
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
       - name: Packer build
