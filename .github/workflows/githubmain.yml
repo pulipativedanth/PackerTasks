@@ -37,7 +37,9 @@ jobs:
    
       - uses: actions/checkout@v1
       - name: Update config.json
-        run: echo "`jq '.builders.managed_image_name="ubuntu_test_packer"' ubuntuImage_ShellScript.json`" > ubuntuImage_ShellScript.json
+        env:
+          ID: 543534534
+        run: jq --arg id "$ID" '.builders.managed_image_name=$id' ubuntuImage_ShellScript.json | sponge ubuntuImage_ShellScript.json
       - name: read config.json
         run: cat ubuntuImage_ShellScript.json
 
