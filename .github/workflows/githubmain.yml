@@ -36,8 +36,12 @@ jobs:
 
    
       - uses: actions/checkout@v1
-      - name: Update config.json
-        run: echo "`jq 'builders.managed_image_name="test_packer"' ubuntuImage_ShellScript.json`" > ubuntuImage_ShellScript.json
+      - uses: MerthinTechnologies/edit-json-action@v1
+        with:
+          filename: './ubuntuImage_ShellScript.json'
+          key: 'managed_image_name'
+          value: 'ubunut_test_packer'
+
 
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
       - name: Packer build
