@@ -40,7 +40,7 @@ jobs:
         uses: benday-inc/set-property-value-in-appsettings@main
         with:
           pathtosettingsfile: 'ubuntuImage_ShellScript.pkr.json'
-          keyname1: 'builders.managed_image_name'
+          keyname1: 'managed_image_name'
           valuetoset: 'the new value'
 
 
