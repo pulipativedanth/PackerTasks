@@ -74,6 +74,7 @@ jobs:
         with:
           tf_actions_version: 0.14.8
           tf_actions_subcommand: 'init'
+          varFile: './packer-vars.json'
           tf_actions_working_dir: "./vm_create.tf"
  
       - name: 'Terraform Validate'
@@ -81,6 +82,7 @@ jobs:
         with:
           tf_actions_version: 0.14.8
           tf_actions_subcommand: 'validate'
+          varFile: './packer-vars.json'
           tf_actions_working_dir: "./vm_create.tf"
          
       - name: 'Terraform Plan'
@@ -88,6 +90,7 @@ jobs:
         with:
           tf_actions_version: 0.14.8
           tf_actions_subcommand: 'plan'
+          varFile: './packer-vars.json'
           tf_actions_working_dir: "./vm_create.tf"
 
       - name: Terraform Apply
@@ -96,5 +99,6 @@ jobs:
           tf_actions_version: 0.14.8
           run: terraform apply -refresh-only -auto-approve
           tf_actions_subcommand: 'apply'
+          varFile: './packer-vars.json'
           tf_actions_working_dir: "./vm_create.tf"
 
