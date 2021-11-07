@@ -36,15 +36,6 @@ jobs:
 
    
       - uses: actions/checkout@v1
-      - name: Update my-file.json description
-        uses: jossef/action-set-json-field@v1
-        with:
-          file: ubuntuImage_ShellScript.json
-          field: managed_image_name
-          value: my_custom_data
-
-
-
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
       - name: Packer build
         uses: riznob/packer-build-action@v1.5
