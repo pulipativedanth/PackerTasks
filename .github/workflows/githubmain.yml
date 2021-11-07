@@ -21,8 +21,7 @@ on:
   push:
     branches: [ master ]
 env:
-  set-output name : "date::$(date +'%Y-%m-%d')"
-  samevar: "Ubuntu-Test-Packer-{ date::$(date +'%Y-%m-%d') }"
+  samevar:  "${{ github.event.inputs. Image_Name }}"
   samevar1: "${{ github.event.inputs. REGION }}"
   samevar2: "${{ github.event.inputs. SUBSCRIPTION }}"
   
