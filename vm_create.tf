@@ -1,9 +1,9 @@
 provider "azurerm" {
 	features {}
-  	client_id = "client_id"
-    client_secret = "client_secret"
-    tenant_id = "tenant_id"
-    subscription_id = "SUBSCRIPTION"
+  	client_id = var.client_id
+    client_secret = var.client_secret
+    tenant_id = var.tenant_id
+    subscription_id = var.SUBSCRIPTION
 }
 
 variable "prefix" {
