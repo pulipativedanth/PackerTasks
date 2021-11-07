@@ -51,7 +51,6 @@ jobs:
         with:
           templateFile: './ubuntuImage_ShellScript.json'
           varFile: './packer-vars.json'
-          varfile: '/home/runner/work/PackerTasks/PackerTasks/env.json'
           workingDir: '.' 
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
