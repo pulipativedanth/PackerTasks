@@ -6,32 +6,7 @@ provider "azurerm" {
   tenant_id       = "${var.tenant_id}"
 }
 
-variable "prefix" {
-  default = "PackerTestEU10"
-}
 
-variable "resourcegroup" {
-	default = "saas-build-sig-01"
-}
-variable "location" {
-	default = "REGION"
-}
-
-variable "subscription_id" {
-	default = " subscription_id"
-}
-variable "tenant_id" {
-	default = "tenant_id"
-}
-variable "client_secret" {
-	default = "client_secret"
-}
-variable "client_id" {
-	default = "client_id"
-}
-variable "imagename" {
-	default = "imageunique"
-}
 
 
 /*
