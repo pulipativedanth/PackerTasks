@@ -4,7 +4,7 @@ provider "azurerm" {
     client_secret = var.client_secret
     tenant_id = var.tenant_id
     subscription_id = var. subscription_id
-    version         = "=2.0.0" 
+    version = "=2.46.0"
     features {}
 }
 
