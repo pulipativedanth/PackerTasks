@@ -21,7 +21,7 @@ on:
   push:
     branches: [ master ]
 env:
-  samevar: 'Ubuntu-Test-Packer-{{ timestamp }}'
+  samevar: "Ubuntu-Test-Packer-{{ timestamp }}"
   samevar1: "${{ github.event.inputs. REGION }}"
   samevar2: "${{ github.event.inputs. SUBSCRIPTION }}"
   
