@@ -34,7 +34,16 @@ jobs:
           echo "- in ${{ github.event.inputs. REGION }}!"
           echo "- in ${{ github.event.inputs. IMAGE }}!"
 
-   
+      - uses: schdck/create-env-json@v1
+        id: create-env
+        with:
+          file-name: 'env.json'
+          client_id: ${{ secrets.CLIENT_ID }}
+          client_secret: ${{ secrets.CLIENT_SECRET }}
+          tenant_id: ${{ secrets.TENANT_ID }}
+          subscription_id: ${{ github.event.inputs. SUBSCRIPTION }}
+          
+
       - uses: actions/checkout@v1
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
       - name: Packer build
