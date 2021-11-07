@@ -41,9 +41,9 @@ jobs:
         id: create-env
         with:
           file-name: 'env.json'
-          client_id: ${{ secrets.CLIENT_ID }}
-          client_secret: ${{ secrets.CLIENT_SECRET }}
-          tenant_id: ${{ secrets.TENANT_ID }}
+          managed_image_name: ${{ github.event.inputs.Image_Name }}
+          location: ${{ github.event.inputs. REGION }}
+          managed_image_resource_group_name: ${{ github.event.inputs. IMAGE }}
           subscription_id: ${{ github.event.inputs. SUBSCRIPTION }}
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
       - name: Packer build
@@ -51,6 +51,7 @@ jobs:
         with:
           templateFile: './ubuntuImage_ShellScript.json'
           varFile: './packer-vars.json'
+          varfile: '/home/runner/work/PackerTasks/PackerTasks/env.json'
           workingDir: '.' 
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
