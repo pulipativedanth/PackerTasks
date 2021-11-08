@@ -3,8 +3,7 @@
     "client_id": "",
     "client_secret": "",
 	"tenant_id": "",
-	  "subscription_id": "",
-	  "managed_image_name": ""
+	  "subscription_id": ""
 	  },
 
  "builders": [{
