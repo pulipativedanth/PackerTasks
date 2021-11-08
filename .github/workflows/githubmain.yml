@@ -61,9 +61,9 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: sed -i 's/imageunique/${{ env.samevar }}/g' vm_create.tf
-      - run: sed -i 's/SUBSCRIPTION/${{ env.samevar2 }}/g' vm_create.tf
-      - run: sed -i 's/REGION/${{  env.samevar1 }}/g' vm_create.tf
+      - run: sed -i 's/imageunique/${{ env.samevar }}/g' variables.tf
+      - run: sed -i 's/SUBSCRIPTION/${{ env.samevar2 }}/g' variables.tf
+      - run: sed -i 's/REGION/${{  env.samevar1 }}/g' variables.tf
       
       - uses: azure/login@v1
         with:
