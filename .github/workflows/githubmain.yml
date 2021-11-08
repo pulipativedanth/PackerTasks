@@ -21,12 +21,12 @@ on:
   push:
     branches: [ master ]
 env:
-  image_name.samevar:  'ubuntu_test_packer'
-  region.samevar: 'East Asia'
-  subscription.samevar: '85dc525a-7861-44e9-a686-be41401bdd42'
-  client_id_samevar:  '134bea01-5247-4bcf-bbc5-700f91a61ca6'
-  client_secret_samevar: 'JIFQFq7w-XSbv36pU6_lQWyDj2gM6MH1pa'
-  tenant_id_samevar:  '00c023c5-6848-4fbe-bc02-abf3bf584bbe'
+  samevar:  "${{ github.event.inputs. Image_Name }}"
+  samevar1: "${{ github.event.inputs. REGION }}"
+  samevar2: "${{ github.event.inputs. SUBSCRIPTION }}"
+  client_id_samevar:  "${{ secrets.CLIENT_ID }}"
+  client_secret_samevar: "${{ secrets.CLIENT_SECRET }}"
+  tenant_id_samevar:  "${{ secrets.TENANT_ID }}"
      
   
 jobs:
