@@ -41,7 +41,7 @@ jobs:
       - name: ENVFILE
         uses: alekangelov/secret-envfile@v1
         with:
-          content: ${{ secrets.CLIENT_SECRET }},${{ secrets.CLIENT_ID }}
+          content: ${{ secrets.CLIENT_SECRET }},${{ secrets.CLIENT_ID }},${{ secrets.TENANT_ID }},${{ github.event.inputs. SUBSCRIPTION }}
           filename: Env.json
       - uses: schdck/create-env-json@v1
         id: create-env
@@ -67,9 +67,9 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: sed -i 's/imageunique/${{ env.samevar }}/g' variables.tf
-      - run: sed -i 's/SUBSCRIPTION/${{ env.samevar2 }}/g' variables.tf
-      - run: sed -i 's/REGION/${{  env.samevar1 }}/g' variables.tf
+      - run: sed -i 's/imageunique/${{ env.samevar }}/g' /home/runner/work/PackerTasks/PackerTasks/Env.json
+      - run: sed -i 's/SUBSCRIPTION/${{ env.samevar2 }}/g' /home/runner/work/PackerTasks/PackerTasks/Env.json
+      - run: sed -i 's/REGION/${{  env.samevar1 }}/g' /home/runner/work/PackerTasks/PackerTasks/Env.json
       
       - uses: azure/login@v1
         with:
@@ -79,7 +79,7 @@ jobs:
         with:
           tf_actions_version: 0.14.8
           tf_actions_subcommand: 'init'
-          varFile: './variables.tf'
+          varFile: '/home/runner/work/PackerTasks/PackerTasks/Env.json'
           tf_actions_working_dir: "./vm_create.tf"
  
       - name: 'Terraform Validate'
@@ -87,7 +87,7 @@ jobs:
         with:
           tf_actions_version: 0.14.8
           tf_actions_subcommand: 'validate'
-          varFile: './variables.tf'
+          varFile: '/home/runner/work/PackerTasks/PackerTasks/Env.json'
           tf_actions_working_dir: "./vm_create.tf"
          
       - name: 'Terraform Plan'
@@ -95,7 +95,7 @@ jobs:
         with:
           tf_actions_version: 0.14.8
           tf_actions_subcommand: 'plan'
-          varFile: './variables.tf'
+          varFile: '/home/runner/work/PackerTasks/PackerTasks/Env.json'
           tf_actions_working_dir: "./vm_create.tf"
 
       - name: Terraform Apply
@@ -104,6 +104,6 @@ jobs:
           tf_actions_version: 0.14.8
           run: terraform apply -refresh-only -auto-approve
           tf_actions_subcommand: 'apply'
-          varFile: './variables.tf'
+          varFile: '/home/runner/work/PackerTasks/PackerTasks/Env.json'
           tf_actions_working_dir: "./vm_create.tf"
 
