@@ -41,31 +41,17 @@ jobs:
       
 
       - uses: actions/checkout@v1
-      - run: sed -i 's/CLIENT_ID/${{ env.clinet_id_samevar }}/g' variables.tf
-      - run: sed -i 's/CLIENT_SECRET/${{ env.clinet_secret_samevar }}/g' variables.tf
-      - run: sed -i 's/TENANT_ID/${{ env.tenant_id_samevar }}/g' variables.tf
-      - run: sed -i 's/SUBSCRIPTION/${{ env.samevar2 }}/g' variables.tf
-    
-      - name: ENVFILE
-        uses: alekangelov/secret-envfile@v1
-        with:
-          content: ${{ secrets.CLIENT_SECRET }},${{ secrets.CLIENT_ID }},${{ secrets.TENANT_ID }},${{ github.event.inputs. SUBSCRIPTION }}
-          filename: Env.json
-      - uses: schdck/create-env-json@v1
-        id: create-env
-        with:
-          file-name: 'env.json'
-          managed_image_name: ${{ github.event.inputs.Image_Name }}
-          location: ${{ github.event.inputs. REGION }}
-          managed_image_resource_group_name: ${{ github.event.inputs. IMAGE }}
-          subscription_id: ${{ github.event.inputs. SUBSCRIPTION }}
+      - run: sed -i 's/CLIENT_ID/${{ env.clinet_id_samevar }}/g' packer-vars.json
+      - run: sed -i 's/CLIENT_SECRET/${{ env.clinet_secret_samevar }}/g' packer-vars.json
+      - run: sed -i 's/TENANT_ID/${{ env.tenant_id_samevar }}/g' packer-vars.json
+      - run: sed -i 's/SUBSCRIPTION/${{ env.samevar2 }}/g' packer-vars.json
       - run: sed -i 's/imageunique/${{ env.samevar }}/g' ubuntuImage_ShellScript.json
-#      - name: Packer build
-#        uses: riznob/packer-build-action@v1.5
-#        with:
-#          templateFile: './ubuntuImage_ShellScript.json'
-#          varFile: './packer-vars.json'
-#          workingDir: '.' 
+      - name: Packer build
+        uses: riznob/packer-build-action@v1.5
+        with:
+          templateFile: './ubuntuImage_ShellScript.json'
+          varFile: './packer-vars.json'
+          workingDir: '.' 
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v2
