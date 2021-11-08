@@ -24,6 +24,10 @@ env:
   samevar:  "${{ github.event.inputs. Image_Name }}"
   samevar1: "${{ github.event.inputs. REGION }}"
   samevar2: "${{ github.event.inputs. SUBSCRIPTION }}"
+  clinet_id_samevar:  "${{ secrets.CLIENT_ID }}"
+  clinet_secret_samevar: "${{ secrets.CLIENT_SECRET }}"
+  tenant_id_samevar:  "${{ secrets.TENANT_ID }}"
+     
   
 jobs:
   Explore-GitHub-Actions:
@@ -37,6 +41,10 @@ jobs:
       
 
       - uses: actions/checkout@v1
+      - run: sed -i 's/CLIENT_ID/${{ env.clinet_id_samevar }}/g' variables.tf
+      - run: sed -i 's/CLIENT_SECRET/${{ env.clinet_secret_samevar }}/g' variables.tf
+      - run: sed -i 's/TENANT_ID/${{ env.tenant_id_samevar }}/g' variables.tf
+      - run: sed -i 's/SUBSCRIPTION/${{ env.samevar2 }}/g' variables.tf
     
       - name: ENVFILE
         uses: alekangelov/secret-envfile@v1
