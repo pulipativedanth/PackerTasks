@@ -46,7 +46,7 @@ jobs:
       - run: sed -i 's/tenant_id/${{ env.tenant_id_samevar }}/g' packer-vars.json
       - run: sed -i 's/subscription_id/${{ env.samevar2 }}/g' packer-vars.json
       - run: sed -i 's/managed_image_name/${{ env.image_name.samevar }}/g' packer-vars.json
-      - run: sed -i 's/location/${{ region.samevar }}/g' packer-vars.json
+      - run: sed -i 's/location/${{ env.region.samevar }}/g' packer-vars.json
       
       - name: Packer build
         uses: riznob/packer-build-action@v1.5
