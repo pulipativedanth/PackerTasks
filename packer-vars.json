@@ -2,8 +2,7 @@
   "client_id": "CLIENT_ID",
   "client_secret": "CLIENT_SECRET",
   "tenant_id": "TENANT_ID",
-  "subscription_id": "SUBSCRIPTION"
- "managed_image_resource_group_name": "RESOURCE_GROUP"
-  "managed_image_name": "IMAGE_NAME"
+  "subscription_id": "SUBSCRIPTION",
+  "managed_image_name": "IMAGE_NAME",
    "location": "REGION"
 }
