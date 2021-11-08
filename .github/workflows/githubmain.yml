@@ -38,9 +38,11 @@ jobs:
 
       - uses: actions/checkout@v1
     
-      - uses: bariscanyilmaz/paste-secret@v1
+      - name: ENVFILE
+        uses: alekangelov/secret-envfile@v1
         with:
-         secrets: '[{"filename":"env.json","keys":[{"client_id":" ${{ secrets. CLIENT_ID}}","client_secret":" ${{ secrets. CLIENT_SECRET}}","tenant_id":" ${{ secrets. TENANT_ID}}","subscription_id":"${{ github.event.inputs.SUBSCRIPTION }}"}]}]'
+          content: ${{ secrets.CLIENT_SECRET }},${{ secrets.CLIENT_ID }}
+          filename: Env.json
       - uses: schdck/create-env-json@v1
         id: create-env
         with:
