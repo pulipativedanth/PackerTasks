@@ -6,7 +6,7 @@ variable "resourcegroup" {
 	default = "saas-build-sig-01"
 }
 variable "location" {
-	default = "East Asia"
+	default = "REGION"
 }
 
 variable "subscription_id" {
