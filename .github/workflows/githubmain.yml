@@ -27,6 +27,7 @@ env:
   client_id_samevar:  "${{ secrets.CLIENT_ID }}"
   client_secret_samevar: "${{ secrets.CLIENT_SECRET }}"
   tenant_id_samevar:  "${{ secrets.TENANT_ID }}"
+  samevar3:  "${{ github.event.inputs. Image }}"
      
   
 jobs:
@@ -45,6 +46,9 @@ jobs:
       - run: sed -i 's/CLIENT_SECRET/${{ env.client_secret_samevar }}/g' packer-vars.json
       - run: sed -i 's/TENANT_ID/${{ env.tenant_id_samevar }}/g' packer-vars.json
       - run: sed -i 's/SUBSCRIPTION/${{ env.samevar2 }}/g' packer-vars.json
+      - run: sed -i 's/IMAGE/${{ env.samevar3 }}/g' packer-vars.json
+      - run: sed -i 's/IMAGE_NAME/${{ env.samevar }}/g' packer-vars.json
+      - run: sed -i 's/LOCATION/${{ env.samevar1 }}/g' packer-vars.json
       
       - name: Packer build
         if: github.event.inputs. IMAGE == 'windows'
