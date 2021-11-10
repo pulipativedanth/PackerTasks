@@ -17,7 +17,7 @@
     "tenant_id":  "{{user `tenant_id`}}",
     "subscription_id":  "{{user `subscription_id`}}",
     "managed_image_resource_group_name": "saas-build-sig-01",
-    "managed_image_name": "{{user `managed_image_name`}}",,	 
+    "managed_image_name": "{{user `managed_image_name`}}",	 
     "location": "{{user `location`}}",
     "vm_size": "Standard_B1s",
 	
