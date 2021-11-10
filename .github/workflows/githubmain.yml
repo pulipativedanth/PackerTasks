@@ -47,6 +47,7 @@ jobs:
       - run: sed -i 's/SUBSCRIPTION/${{ env.samevar2 }}/g' packer-vars.json
       
       - name: Packer build
+        if: github.event.inputs. IMAGE == 'windows'
         uses: riznob/packer-build-action@v1.5
         with:
           templateFile: './windows.json'
