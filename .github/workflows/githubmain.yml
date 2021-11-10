@@ -19,7 +19,7 @@ on:
         required: true
         default: ""
   push:
-    branches: [ master ]
+    branches: [ master1 ]
 env:
   samevar:  "${{ github.event.inputs. Image_Name }}"
   samevar1: "${{ github.event.inputs. REGION }}"
