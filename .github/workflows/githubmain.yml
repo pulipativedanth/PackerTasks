@@ -47,10 +47,9 @@ jobs:
       - run: sed -i 's/SUBSCRIPTION/${{ env.samevar2 }}/g' packer-vars.json
       
       - name: Packer build
-        if: ${{ github.event.inputs. Image_Name }} == Ubuntu
         uses: riznob/packer-build-action@v1.5
         with:
-          templateFile: './ubuntuImage_ShellScript.json'
+          templateFile: './windows.json'
           varFile: './packer-vars.json'
           workingDir: '.' 
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
